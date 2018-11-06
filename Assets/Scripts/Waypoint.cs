@@ -8,7 +8,7 @@ public class Waypoint : MonoBehaviour {
     public int nCurTarget = 0;//현재 경로 번호
     public GameObject goItem = null;//쫓아다닐 아이템
     public float fDisMin = 1f; //도달 판정 거리
-
+    public float fMoveSpeed = 30;
 
     // Update is called once per frame
     void Update() {
@@ -17,7 +17,7 @@ public class Waypoint : MonoBehaviour {
     }
     void Move(Transform trTarget_) {
         goItem.transform.LookAt(trTarget_);//목적지를 본다
-        goItem.transform.Translate(Vector3.forward*Time.deltaTime*30, Space.Self);//앞으로 간다
+        goItem.transform.Translate(Vector3.forward*Time.deltaTime*fMoveSpeed, Space.Self);//앞으로 간다
 	}
 
     //도착 확인

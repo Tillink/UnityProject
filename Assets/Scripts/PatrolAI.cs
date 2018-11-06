@@ -19,7 +19,8 @@ public class PatrolAI : MonoBehaviour
     public Transform reaturnArea;//대상이 고정되서 지정만 하는 경우, 어차피 지정을 하지 않아도 null로 되므로 지정을 안해도 괜찮다.
     public Transform spawn;
     //public GameObject go = new GameObject();
-
+    private Ray _ray;
+    private RaycastHit _raycastHit;
     public enum state
     {
         stay,
@@ -48,6 +49,7 @@ public class PatrolAI : MonoBehaviour
     }
     void Start()
     {
+        
         ReturnPoint = transform.position;
 
     }
@@ -70,11 +72,15 @@ public class PatrolAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            target = other.gameObject.transform;
+            if (Physics.Raycast (gameObject.transform.position, gameObject.transform.forward, out _raycastHit, 30.0F))
+            if(_raycastHit.collider.tag=="Player")
+            {
+                Debug.DrawRay(gameObject.transform.position,gameObject.transform.forward,Color.red,3);
+                target = other.gameObject.transform;
             agent.speed = 2.0f;
             isStopped = false;
             Debug.Log("가");
-            agrro++;
+            agrro++;}
         }
         if (other.gameObject.tag == "Area")
         {
@@ -101,3 +107,49 @@ public class PatrolAI : MonoBehaviour
     }
 
 }
+
+// 기본적인 내비매쉬 AI
+//     public Transform target;
+//     Vector3 destination;
+//     NavMeshAgent agent;
+
+
+//     // Use this for initialization
+//     void Start()
+//     {
+//         agent = GetComponent<NavMeshAgent>();
+//         destination = agent.destination;
+//     }
+
+//     // Update is called once per frame
+//     void Update()
+//     {
+//         if (target != null)
+//         {
+
+
+//             if (Vector3.Distance(destination, target.position) > 1.0f)
+//             {
+//                 destination = target.position;
+//                 agent.destination = destination;
+//             }
+//         }
+//     }
+//     void OnTriggerEnter(Collider other)
+//     {
+//         if (other.gameObject.tag == "Player")
+//         {
+//             target = other.gameObject.transform;
+//         }
+//     }
+
+//     void OnTriggerExit(Collider other)
+//     {
+//         if (other.gameObject.tag == "Player")
+//         {
+//             target = null;
+//             agent.destination = transform.position;
+//         }
+//     }
+
+// }
