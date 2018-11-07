@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class MainMenuController : MonoBehaviourEx
+public class MenuController : MonoBehaviourEx
 {
 	public void Btn_Start(){//메인메뉴
 		Debug.Log("1");
