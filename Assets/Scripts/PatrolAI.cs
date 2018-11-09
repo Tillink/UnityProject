@@ -71,29 +71,27 @@ public class PatrolAI : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-        {
-            if (Physics.Raycast (gameObject.transform.position, gameObject.transform.forward, out _raycastHit, 30.0F))
-            if(_raycastHit.collider.tag=="Player")
             {
-                Debug.DrawRay(gameObject.transform.position,gameObject.transform.forward,Color.red,3);
-                target = other.gameObject.transform;
-            agent.speed = 2.0f;
-            isStopped = false;
-            Debug.Log("가");
-            agrro++;}
+               Physics.SphereCast(transform.position, 3f, transform.TransformDirection(Vector3.forward), out _raycastHit, Mathf.Infinity);
+               if(_raycastHit.collider.tag == "Player")
+                {
+                  Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * _raycastHit.distance, Color.yellow);
+                  Debug.Log(_raycastHit.collider.tag);
+                   target = other.gameObject.transform;
+                  agent.speed = 2.0f;
+                  isStopped = false;
+                   Debug.Log("가");
+                  agrro++;
+                }
+            else
+                {
+                  Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+                  Debug.Log(_raycastHit.collider.name);
+                }                
+
+            }
         }
-        if (other.gameObject.tag == "Area")
-        {
-            target = null;
-            agent.destination = spawn.transform.position;
-            //spawn = other.gameObject.transform;
-            isStopped = false;
-            agent.speed = 4.0f;
-            Debug.Log("돌아가");
-            agent.destination = ReturnPoint;
-            agrro =0f;
-        }
-    }
+    
 
     void OnTriggerExit(Collider other)
     {

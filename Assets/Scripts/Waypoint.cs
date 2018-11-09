@@ -5,8 +5,7 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour {
 
     public List<Transform> trTargets = new List<Transform>();//경로
-    public int nCurTarget = 0;//현재 경로 번호
-    public GameObject goItem = null;//쫓아다닐 아이템
+    private int nCurTarget = 0;//현재 경로 번호
     public float fDisMin = 1f; //도달 판정 거리
     public float fMoveSpeed = 30;
 
@@ -15,16 +14,17 @@ public class Waypoint : MonoBehaviour {
         Move(trTargets[nCurTarget]);
         NextCheck();
     }
+    
     void Move(Transform trTarget_) {
-        goItem.transform.LookAt(trTarget_);//목적지를 본다
-        goItem.transform.Translate(Vector3.forward*Time.deltaTime*fMoveSpeed, Space.Self);//앞으로 간다
+        gameObject.transform.LookAt(trTarget_);//목적지를 본다
+        gameObject.transform.Translate(Vector3.forward*Time.deltaTime*fMoveSpeed, Space.Self);//앞으로 간다
 	}
 
     //도착 확인
     void NextCheck()
     {
         float fCurDis = Vector3.Distance(
-            goItem.transform.position, trTargets[nCurTarget].position);//현재 목적지 거리 계산
+            gameObject.transform.position, trTargets[nCurTarget].position);//현재 목적지 거리 계산
         if(fCurDis<fDisMin)//목적지에 가까워지면
         {
             nCurTarget++;//다음 목적지로 지정
