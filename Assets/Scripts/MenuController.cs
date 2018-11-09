@@ -7,11 +7,21 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class MenuController : MonoBehaviourEx
+public class MenuController : MonoBehaviour
 {
 	public void Btn_Start(){//메인메뉴
 		Debug.Log("1");
 		SceneManager.LoadScene("Menu_start_difficulties");
+	}
+
+	public void Btn_GoOnGame(){//게임 본격 시작 20181109 기준 samplescene이 게임 시작임
+		Debug.Log("GoOn");
+		SceneManager.LoadScene("SampleScene");
+	}
+
+	public void Btn_GameIntroScene(){
+		Debug.Log("gmaeintro");
+		SceneManager.LoadScene("GameIntroScene");
 	}
 
 	public void Btn_Score(){//점수메뉴

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class BombTime : MonoBehaviour {
 
 	public GameObject bomb;
@@ -12,5 +12,10 @@ public class BombTime : MonoBehaviour {
 	public void Update(){
 			bomb.GetComponent<Image>().fillAmount -= _decreaseCount;
 
+			if(bomb.GetComponent<Image>().fillAmount==0){
+				SceneManager.LoadScene("GameOver_BombTimeOver");
+			}
+
 	}
+	
 }
