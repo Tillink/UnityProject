@@ -7,11 +7,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-<<<<<<< HEAD:Assets/Scripts/MenuController.cs
+
 public class MenuController : MonoBehaviour
-=======
-public class MenuController : MonoBehaviourEx
->>>>>>> origin/1107김동성:Assets/Scripts/MenuController.cs
 {
 	public void Btn_Start(){//메인메뉴
 		Debug.Log("1");
