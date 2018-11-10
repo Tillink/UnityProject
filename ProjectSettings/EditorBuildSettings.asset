@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu_popup_whilePlaying.unity
     guid: 076c33a17ada9a7428661e073db23bf3
   - enabled: 1
+    path: Assets/Scenes/GameIntroScene.unity
+    guid: dab8c5d3d2370f74a946a0d3ae31ec9c
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: a2421e35819b5a24fbfb68e0315de928
+  - enabled: 1
+    path: Assets/Scenes/GameOver_BombTimeOver.unity
+    guid: 92f12c1c5a751f045ab2fad7c77e41c5
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
