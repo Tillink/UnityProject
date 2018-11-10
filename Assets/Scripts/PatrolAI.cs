@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PatrolAI : MonoBehaviour
 {
-
+//이 AI는 Waypoint와 Chase를 운용하는 스크립트임.
     public Transform target = null;//대상이 바뀌는 경우엔 반드시 null 표기가 필요
     Vector3 destination;
     NavMeshAgent agent;
@@ -21,31 +21,13 @@ public class PatrolAI : MonoBehaviour
     //public GameObject go = new GameObject();
     private Ray _ray;
     private RaycastHit _raycastHit;
-    public enum state
-    {
-        stay,
-        watching,
-        patrol,
-        attck,
-        //장기적으로 고려할 부분.
-        //평시-감시-경계-공격-행동불가 패턴이 있어야 할 것.
-    }
 
-    //어그로 수치에 따라 행동 시작.
-    //어그로 수치가 낮은 정도를 넘으면 플레이어를 계속 봄
-    //어그로 수치가 중간 수준을 넘으면 플레이어를 따라감
-    //어그로 수치가 매우 높은 수준을 넘으면 빠른 속도로 따라감
-    //어그로가 높아도 범위 밖으로 나가면 추적을 포기하고 원래 경로로 돌아감.
-    //평소엔 어그로가 낮아지고 있으나, 범위 안에 들어오면 점차 증가치가 늘어남.
-    //경비병이 
     // Use this for initialization
     public Vector3 ReturnPoint;
     void OnEnable()
     {
-        
         agent = GetComponent<NavMeshAgent>();
         destination = agent.destination;
-        
     }
     void Start()
     {
@@ -54,7 +36,7 @@ public class PatrolAI : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    #region forChasing
     void Update()
     {
 
@@ -103,6 +85,30 @@ public class PatrolAI : MonoBehaviour
             Debug.Log("멈춰");
         }
     }
+    #endregion
+
+    // void Update() {
+    //     Move(trTargets[nCurTarget]);
+    //     NextCheck();
+    // }
+    
+    // void Move(Transform trTarget_) {
+    //     gameObject.transform.LookAt(trTarget_);//목적지를 본다
+    //     gameObject.transform.Translate(Vector3.forward*Time.deltaTime*fMoveSpeed, Space.Self);//앞으로 간다
+	// }
+
+    // //도착 확인
+    // void NextCheck()
+    // {
+    //     float fCurDis = Vector3.Distance(
+    //         gameObject.transform.position, trTargets[nCurTarget].position);//현재 목적지 거리 계산
+    //     if(fCurDis<fDisMin)//목적지에 가까워지면
+    //     {
+    //         nCurTarget++;//다음 목적지로 지정
+    //         if (nCurTarget >= trTargets.Count)
+    //             nCurTarget = 0;//끝까지 목적지를 다 돌았으면 0으로 초기화
+    //     }
+    // }
 
 }
 
