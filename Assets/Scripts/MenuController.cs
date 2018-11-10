@@ -10,7 +10,11 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-	public void Btn_Start(){//메인메뉴
+	
+
+//----------------------------------------
+
+	public void Btn_Start(){//메인메뉴-> 난이도 메뉴로
 		Debug.Log("1");
 		SceneManager.LoadScene("Menu_start_difficulties");
 	}
@@ -20,7 +24,7 @@ public class MenuController : MonoBehaviour
 		SceneManager.LoadScene("SampleScene");
 	}
 
-	public void Btn_GameIntroScene(){
+	public void Btn_GameIntroScene(){//인트로 신 불러옴
 		Debug.Log("gmaeintro");
 		SceneManager.LoadScene("GameIntroScene");
 	}
@@ -33,7 +37,7 @@ public class MenuController : MonoBehaviour
 		Debug.Log("3");
 		Application.Quit();
 	}
-	public void Btn_Tomenu(){//메뉴로 돌아가기
+	public void Btn_Tomenu(){//어느신이든 이 버튼 누르면 메뉴로 돌아가기
 		Debug.Log("4");
 		SceneManager.LoadScene("Menu_main");
 	}

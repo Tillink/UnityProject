@@ -7,6 +7,7 @@ TagManager:
   - btnstart
   - btnscore
   - btnquit
+  - Guard
   layers:
   - Default
   - TransparentFX
