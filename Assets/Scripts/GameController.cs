@@ -20,15 +20,23 @@ public GameObject Playerobj;
 			
 		}
 		FallingDown();
+		Escaped();
 	}
 	
 	public void FallingDown(){
 		
 		if(Playerobj.transform.position.y<-20){
+			Debug.Log("자폭");
 			SceneManager.LoadScene("GameOver_Fallen");
 		}
 
 
+	}
+	public void Escaped(){
+		if(Playerobj.transform.position.z<-90){
+			Debug.Log("성공적으로 탈출");
+			SceneManager.LoadScene("Menu_main");
+		}
 	}
 
 }
