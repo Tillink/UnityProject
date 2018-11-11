@@ -10,10 +10,15 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-	
+
 
 //----------------------------------------
+	public void RestartGame(){
+		Debug.Log("restart");
+		SceneManager.LoadScene("Playing_game");
+		
 
+	}
 	public void Btn_Start(){//메인메뉴-> 난이도 메뉴로
 		Debug.Log("1");
 		SceneManager.LoadScene("Menu_start_difficulties");
@@ -21,7 +26,7 @@ public class MenuController : MonoBehaviour
 
 	public void Btn_GoOnGame(){//게임 본격 시작 20181109 기준 samplescene이 게임 시작임
 		Debug.Log("GoOn");
-		SceneManager.LoadScene("SampleScene");
+		SceneManager.LoadScene("Playing_game");
 	}
 
 	public void Btn_GameIntroScene(){//인트로 신 불러옴
@@ -46,4 +51,5 @@ public class MenuController : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Escape))
 			SceneManager.LoadScene("Menu_popup_whilePlaying");
 	}
+	
 }

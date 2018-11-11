@@ -24,8 +24,14 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver_BombTimeOver.unity
     guid: 92f12c1c5a751f045ab2fad7c77e41c5
   - enabled: 1
+    path: Assets/Scenes/Playing_game.unity
+    guid: 590a39e9c18bb2543ab2d6bfe32b371b
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 5c6bf250616e4ff4aa7a1fe5aa7f45aa
+  - enabled: 1
+    path: Assets/Scenes/GameOver_Fallen.unity
+    guid: 1a78bd4d532576b4e926d128100a7354
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
