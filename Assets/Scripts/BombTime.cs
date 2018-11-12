@@ -10,13 +10,15 @@ public class BombTime : MonoBehaviour {
 	
 	private float _remainedTime;
 	private float _maxRemaineTime = 100;
-	private string _decreaseCountListener;
-	private float _decreaseCount = 0.01f;
-
+	private float _decreaseCount;
+private string _difficulty;
 	void Start()
 	{
+		_decreaseCount = PlayerPrefs.GetFloat(_difficulty);
+		PlayerPrefs.DeleteKey(_difficulty);
+		Debug.Log(_decreaseCount);
 		_remainedTime = _maxRemaineTime;
-//decreaseCount = _decreaseCountListener가 보낸 값을 받음
+//decreaseCount = _difficulty가 보낸 값을 받음
 
 	}
 	
