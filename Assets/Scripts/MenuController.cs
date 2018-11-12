@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
 
-
+private string _difficulty;
 //----------------------------------------
 	public void RestartGame(){
 		Debug.Log("restart");
@@ -29,11 +29,25 @@ public class MenuController : MonoBehaviour
 		SceneManager.LoadScene("Playing_game");
 	}
 
-	public void Btn_GameIntroScene(){//인트로 신 불러옴
+	public void Btn_EasyGameIntroScene(){//인트로 신 불러옴
 		Debug.Log("gmaeintro");
+		PlayerPrefs.SetFloat(_difficulty,0.01f);
+		PlayerPrefs.Save();
 		SceneManager.LoadScene("GameIntroScene");
 	}
 
+	public void Btn_NormalGameIntroScene(){//인트로 신 불러옴
+		Debug.Log("gmaeintro");
+		PlayerPrefs.SetFloat(_difficulty,0.03f);
+		PlayerPrefs.Save();
+		SceneManager.LoadScene("GameIntroScene");
+	}
+		public void Btn_HardGameIntroScene(){//인트로 신 불러옴
+		Debug.Log("gmaeintro");
+		PlayerPrefs.SetFloat(_difficulty,0.05f);
+		PlayerPrefs.Save();
+		SceneManager.LoadScene("GameIntroScene");
+	}
 	public void Btn_Score(){//점수메뉴
 		Debug.Log("2");
 		SceneManager.LoadScene("Menu_score_chart");
