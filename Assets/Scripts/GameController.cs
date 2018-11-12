@@ -18,10 +18,11 @@ public GameObject btn_quit;
 	protected override void Update () {
 		
 		if(Input.GetKeyDown(KeyCode.Escape)){
-			OnApplicationPause(true);
+			
 			if(Pausemenu.gameObject.activeInHierarchy==false){
 				Pausemenu.gameObject.SetActive(true);
-
+				OnApplicationPause(true);
+				
 				if(Input.GetMouseButtonDown(0)){
 					if(btn_restart)
 					SceneManager.LoadScene("Playing_game");
