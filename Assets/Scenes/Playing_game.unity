@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6776,6 +6776,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pausemenu: {fileID: 494701296}
   Playerobj: {fileID: 2076425183}
+  btn_restart: {fileID: 0}
+  btn_tomenu: {fileID: 0}
+  btn_quit: {fileID: 0}
 --- !u!1 &593411002 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 141332, guid: 55e968f7ad48bbb4b850cbb5e3f4d016,
@@ -21399,7 +21402,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1928902897}
-        m_MethodName: RestartGame
+        m_MethodName: Btn_GoOnGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

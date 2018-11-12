@@ -9,11 +9,30 @@ public GameObject Pausemenu;
 
 public GameObject Playerobj;
 
+[AutoLoad]
+public GameObject btn_restart;
+[AutoLoad]
+public GameObject btn_tomenu;
+[AutoLoad]
+public GameObject btn_quit;
 	protected override void Update () {
 		
 		if(Input.GetKeyDown(KeyCode.Escape)){
+			OnApplicationPause(true);
 			if(Pausemenu.gameObject.activeInHierarchy==false){
 				Pausemenu.gameObject.SetActive(true);
+
+				if(Input.GetMouseButtonDown(0)){
+					if(btn_restart)
+					SceneManager.LoadScene("Playing_game");
+
+					if(btn_tomenu)
+					SceneManager.LoadScene("Menu_main");
+
+					if(btn_quit)
+					Application.Quit();
+				}
+				
 			}
 			else if(Pausemenu.gameObject.activeInHierarchy==true)
 				Pausemenu.gameObject.SetActive(false);
