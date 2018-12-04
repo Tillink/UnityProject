@@ -7,14 +7,12 @@ using UnityEngine.AI;
 public class PatrolAI : MonoBehaviour
 {
 //이 AI는 Waypoint와 Chase를 운용하는 스크립트임.
-    public Transform spawn;
-    private Ray _ray;
+
     private RaycastHit _raycastHit;
     private Chasing chasing;
     private Waypoint waypoint;
-    Vector3 destination;
-    NavMeshAgent agent;
-    public Transform returnPoint;
+    private Vector3 destination;
+    private NavMeshAgent agent;
     void OnEnable()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -55,7 +53,6 @@ public class PatrolAI : MonoBehaviour
                 waypoint.isCameback = false;
                 waypoint.nCurTarget--;
                 }
-                Debug.Log("가");
                 }            
             }
         }
@@ -70,9 +67,6 @@ public class PatrolAI : MonoBehaviour
             GetComponent<NavMeshAgent>().speed = 3.5f;
             GetComponent<SphereCollider>().radius = 4.5f;
             GetComponent<SphereCollider>().center = new Vector3(0,1.55f,6.2f);
-
-            
-            Debug.Log("멈춰");
         }
     }
 }

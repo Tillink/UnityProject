@@ -5,14 +5,12 @@ using UnityEngine;
 public class TileScale : MonoBehaviour {
 
 	public float tileSize;
+	Material tile;
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Material>().mainTextureScale = new Vector2(transform.localScale.x*tileSize,transform.localScale.z*tileSize);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		tileSize = 5;
+		tile = GetComponent<Renderer>().material;
+		tile.mainTextureScale = new Vector2 (transform.localScale.x*tileSize,transform.localScale.z*tileSize);
 	}
 }

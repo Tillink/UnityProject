@@ -11,7 +11,6 @@ public class Waypoint : MonoBehaviour {
     internal NavMeshAgent agent;
     internal bool isCameback = true;
     internal Transform returnPoint;
-    public float speed;
     private float range = 1;
     // Update is called once per frame
     void Update() {
@@ -33,7 +32,6 @@ public class Waypoint : MonoBehaviour {
             {
                 destination = target;
                 agent.destination = destination;
-                Debug.Log("경로이동중");
             }
     }
     //도착 확인

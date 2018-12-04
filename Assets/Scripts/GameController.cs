@@ -20,6 +20,7 @@ public GameObject btn_quit;
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			
 			if(Pausemenu.gameObject.activeInHierarchy==false){
+				MouseUnlock();
 				Pausemenu.gameObject.SetActive(true);
 				OnApplicationPause(true);
 				
@@ -36,7 +37,9 @@ public GameObject btn_quit;
 				
 			}
 			else if(Pausemenu.gameObject.activeInHierarchy==true)
-				Pausemenu.gameObject.SetActive(false);
+				{Pausemenu.gameObject.SetActive(false);
+				Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;}
 			
 		}
 		FallingDown();
@@ -46,7 +49,7 @@ public GameObject btn_quit;
 	public void FallingDown(){
 		
 		if(Playerobj.transform.position.y<-20){
-			Debug.Log("자폭");
+			MouseUnlock();
 			SceneManager.LoadScene("GameOver_Fallen");
 		}
 
@@ -54,9 +57,16 @@ public GameObject btn_quit;
 	}
 	public void Escaped(){
 		if(Playerobj.transform.position.z<-90){
-			Debug.Log("성공적으로 탈출");
+			MouseUnlock();
 			SceneManager.LoadScene("Menu_main");
 		}
 	}
-
+	private void MouseUnlock()
+	{
+		if(Cursor.lockState==CursorLockMode.Locked)
+		{
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
+	}
 }

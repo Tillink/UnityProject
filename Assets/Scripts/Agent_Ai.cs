@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Agent_Ai : MonoBehaviour{
 
 	public GameObject Agent;
-	public GameObject ZeroPoint;
 
 	public int guardtime = 10;
 

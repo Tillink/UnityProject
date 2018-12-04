@@ -38,14 +38,12 @@ public class SceneFade : MonoBehaviour
                 yield return null;
             }
             fadeOutUIImage.enabled = false;
-            Debug.Log("Imagefalse");
         }
         else
         {
             fadeOutUIImage.enabled = true;
             while (alpha <= fadeEndValue)
             {
-                 Debug.Log("Imagetrue");
                 SetColorImage(ref alpha, fadeDirection);
                 yield return null;
             }

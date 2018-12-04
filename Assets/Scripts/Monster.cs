@@ -10,9 +10,6 @@ public class Monster : MonoBehaviour
     public Transform target;
     Vector3 destination;
     NavMeshAgent agent;
-
-
-
     // Use this for initialization
     void Start()
     {
