@@ -11,14 +11,16 @@ public class PatrolAI : MonoBehaviour
     private RaycastHit _raycastHit;
     private Chasing chasing;
     private Waypoint waypoint;
-    private Vector3 destination;
-    private NavMeshAgent agent;
+    protected Vector3 destination;
+    protected NavMeshAgent agent;
+protected Transform target;
     void OnEnable()
     {
         agent = GetComponent<NavMeshAgent>();
         destination = agent.destination;
         chasing = GetComponent<Chasing>();
         waypoint = GetComponent<Waypoint>();
+        target = GameObject.FindWithTag("Player").transform;
 
         chasing.agent = agent;
         chasing.destination = agent.destination;

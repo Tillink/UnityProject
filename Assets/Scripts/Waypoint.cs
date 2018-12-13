@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Waypoint : MonoBehaviour {
+public class Waypoint : PatrolAI {
     public List<Transform> trTargets = new List<Transform>();//경로
     internal int nCurTarget = 0;//현재 경로 번호
     public float fDisMin = 1f; //도달 판정 거리
-    internal Vector3 destination;
-    internal NavMeshAgent agent;
     internal bool isCameback = true;
     internal Transform returnPoint;
     private float range = 1;
